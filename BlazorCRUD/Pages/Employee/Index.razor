@@ -1,0 +1,51 @@
+﻿@page "/Employee/Index"
+@using BlazorCRUD.Models.ViewModel
+@inject BlazorCRUD.Models.Services.EmployeeService _employeeService
+
+<h3>Index</h3>
+<br />
+
+@if (GetEmployees == null)
+{
+    <p><em> Loading.......</em></p>
+}
+else
+{
+    <a href="Employee/Create">Create</a>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Employee ID</th>
+                <th>First name</th>
+                <th>Last name</th>
+                <th>Age</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var model in GetEmployees)
+            {
+                <tr>
+                    <td>@model.EmployeeId</td>
+                    <td>@model.Firstname</td>
+                    <td>@model.Lastname</td>
+                    <td>@model.Age</td>
+                    <td>
+                        <a href="Employee/Edit/@model.EmployeeId">Edit</a>
+                        <a href="Employee/Delete/@model.EmployeeId">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+
+    </table>
+}
+
+@code {
+    List<EmployeeViewModel> GetEmployees;
+
+    protected override async Task OnInitializedAsync()
+    {
+        GetEmployees = await Task.Run(() => _employeeService.GetEmployees());
+    }
+}
