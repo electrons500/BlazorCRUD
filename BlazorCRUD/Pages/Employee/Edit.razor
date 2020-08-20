@@ -1,15 +1,19 @@
-﻿@page "/Employee/Create"
+﻿@page "/Employee/Edit/{CurrentID}"
 @using BlazorCRUD.Models.ViewModel
 @inject BlazorCRUD.Models.Services.EmployeeService _employeeservice
 @inject NavigationManager NavigationManager
 
-<h3>Create</h3>
+<h3>Edit</h3>
 <hr />
 <br />
 
 <form>
     <div class="row">
         <div class="col-md-8">
+            <div class="form-group">
+                <label for="EmployeeId" class="col-form-label">Employee ID</label>
+                <input form="EmployeeId" class="form-control" @bind="@model.EmployeeId" />
+            </div>
             <div class="form-group">
                 <label for="Firstname" class="col-form-label">First name</label>
                 <input form="Firstname" class="form-control" @bind="@model.Firstname" />
@@ -29,7 +33,7 @@
     <div class="row">
         <div class="col-md-4">
             <div class="form-group">
-                <input type="button" class="btn btn-primary" value="Submit" @onclick="@CreateEmployee" />
+                <input type="button" class="btn btn-primary" value="Submit" @onclick="@EditEmployee" />
                 &nbsp;
                 <input type="button" class="btn btn-primary" value="Cancel" @onclick="@cancel" />
 
@@ -42,19 +46,25 @@
 
 
 
-
 @code {
+
+    [Parameter]
+    public string currentID { get; set; }
 
     EmployeeViewModel model = new EmployeeViewModel();
 
-    protected void CreateEmployee()
+    protected override async Task OnInitializedAsync()
     {
-        bool result = _employeeservice.AddEmployee(model);
+        model = await Task.Run(() => _employeeservice.GetEmployeeDetails(Convert.ToInt32(currentID)));
+    }
+
+    protected void EditEmployee()
+    {
+        bool result = _employeeservice.UpdateEmployee(model);
         if (result)
         {
             NavigationManager.NavigateTo("/Employee/Index");
         }
-
 
     }
 

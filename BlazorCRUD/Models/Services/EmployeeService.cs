@@ -69,11 +69,11 @@ namespace BlazorCRUD.Models.Services
 
         //Add employee data
           
-        public bool AddEmployee()
+        public bool AddEmployee(EmployeeViewModel model)
         {
             try
             {
-                EmployeeViewModel model = new EmployeeViewModel();
+               
                 Employee employee = new Employee
                 {
                     Firstname = model.Firstname,
@@ -92,6 +92,34 @@ namespace BlazorCRUD.Models.Services
 
                 throw;
             }
+        }
+
+
+        public bool UpdateEmployee(EmployeeViewModel model)
+        {
+            Employee employee = _Context.Employee.Where(x => x.EmployeeId == model.EmployeeId).FirstOrDefault();
+
+            employee.Firstname = model.Firstname;
+            employee.Lastname = model.Lastname;
+            employee.Age = model.Age;
+
+            _Context.Employee.Update(employee);
+            _Context.SaveChanges();
+
+            return true;
+
+        }
+
+
+        public bool DeleteEmployee(int id)
+        {
+            Employee employee = _Context.Employee.Where(x => x.EmployeeId == id).FirstOrDefault();
+
+            _Context.Employee.Remove(employee);
+            _Context.SaveChanges();
+
+            return true;
+
         }
         
 

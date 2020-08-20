@@ -8,6 +8,11 @@
 @if (GetEmployees == null)
 {
     <p><em> Loading.......</em></p>
+
+    @*<div class="text-center">
+        <img src="~/img/5.gif" alt="loading" width="50" height="50" />
+    </div>*@
+
 }
 else
 {
@@ -33,6 +38,8 @@ else
                     <td>
                         <a href="Employee/Edit/@model.EmployeeId">Edit</a>
                         <a href="Employee/Delete/@model.EmployeeId">Delete</a>
+                       
+                       
                     </td>
                 </tr>
             }

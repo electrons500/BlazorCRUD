@@ -85,3 +85,7 @@ C:\Users\Yishmael\Documents\Visual Studio 2019\Projects\BlazorCRUD\BlazorCRUD\ob
 C:\Users\Yishmael\Documents\Visual Studio 2019\Projects\BlazorCRUD\BlazorCRUD\obj\Debug\netcoreapp3.1\Razor\Pages\Employee\Index.razor.g.cs
 C:\Users\Yishmael\Documents\Visual Studio 2019\Projects\BlazorCRUD\BlazorCRUD\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\Employee\Create.razor.g.cs
 C:\Users\Yishmael\Documents\Visual Studio 2019\Projects\BlazorCRUD\BlazorCRUD\obj\Debug\netcoreapp3.1\Razor\Pages\Employee\Create.razor.g.cs
+C:\Users\Yishmael\Documents\Visual Studio 2019\Projects\BlazorCRUD\BlazorCRUD\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\Employee\Edit.razor.g.cs
+C:\Users\Yishmael\Documents\Visual Studio 2019\Projects\BlazorCRUD\BlazorCRUD\obj\Debug\netcoreapp3.1\Razor\Pages\Employee\Edit.razor.g.cs
+C:\Users\Yishmael\Documents\Visual Studio 2019\Projects\BlazorCRUD\BlazorCRUD\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\Employee\Delete.razor.g.cs
+C:\Users\Yishmael\Documents\Visual Studio 2019\Projects\BlazorCRUD\BlazorCRUD\obj\Debug\netcoreapp3.1\Razor\Pages\Employee\Delete.razor.g.cs
